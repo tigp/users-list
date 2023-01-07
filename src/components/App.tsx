@@ -1,13 +1,13 @@
 import { useState } from 'react';
 
 const App = () => {
-  const [count, setCount] = useState(0);
+  const [name, setName] = useState('Max');
 
   return (
     <>
-      <h1>Hello, Vite!</h1>
-      <button onClick={() => setCount((count) => count + 1)}>
-        count is {count}
+      <h1>Vite Superpower is here!</h1>
+      <button type="button" onClick={() => alert(`Welcome, ${name}!`)}>
+        Click me!
       </button>
     </>
   );
