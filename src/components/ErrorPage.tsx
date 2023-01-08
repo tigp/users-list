@@ -1,3 +1,8 @@
-const ErrorPage = () => <h1>Page is not found!</h1>;
+const ErrorPage = () => (
+  <div id="error-page">
+    <h1>Oops!</h1>
+    <p>Sorry, an unexpected error has occurred.</p>
+  </div>
+);
 
 export default ErrorPage;
