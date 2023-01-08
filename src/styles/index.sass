@@ -1,0 +1,47 @@
+body
+  width: 100wh
+  height: 100vh
+  margin: 0
+  font-family: "Gill Sans", sans-serif
+
+#error-page
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  width: 100%
+
+.grid-container
+  display: grid
+  grid-template-columns: 180px 1fr
+  height: 100vh
+
+  .side-bar
+    background: #aba8a8
+    display: flex
+    flex-direction: column
+    align-items: start
+    justify-content: flex-start
+
+    .btn
+      align-items: center
+      background: #4941d8
+      color: #fff
+      width: 50%
+      font-size: 16px
+      padding: 5px
+      border: none
+      border-radius: 5px
+      margin: 5px 25px
+    
+    .btn:active
+      background: #221488
+
+    .side-bar-title
+      margin-top: 20px
+      margin-bottom: 0px
+      margin-left: 25px
+      font-size: 20px
+
+  .users-list
+    // border: 3px solid green
