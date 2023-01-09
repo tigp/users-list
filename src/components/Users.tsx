@@ -32,19 +32,16 @@ const Users = () => {
     <div className="grid-container">
       <Sidebar />
       <div className="users-list">
-        <h3>Users List</h3>
+        <h4 className="margin-left-10 user-list-title">Users List</h4>
         {contacts.map(({ first, last, email, id }: User) => (
-          <div key={id}>
+          <div className="margin-left-10 user-card" key={id}>
             <p>{first}</p>
             <p>{last}</p>
             <p>{email}</p>
-            <br />
+            <p>Подробнее</p>
           </div>
         ))}
-        <p>
-          {contacts.length}
-          Users Found
-        </p>
+        <p className="margin-left-10">{`${contacts.length} Users Found`}</p>
       </div>
     </div>
   );

@@ -13,19 +13,19 @@ body
 
 .grid-container
   display: grid
-  grid-template-columns: 180px 1fr
+  grid-template-columns: 160px 1fr
   height: 100vh
 
   .side-bar
-    background: #aba8a8
     display: flex
     flex-direction: column
     align-items: start
     justify-content: flex-start
+    background: #716F81 
 
     .btn
       align-items: center
-      background: #4941d8
+      background: #B97A95
       color: #fff
       width: 50%
       font-size: 16px
@@ -33,15 +33,42 @@ body
       border: none
       border-radius: 5px
       margin: 5px 25px
-    
+
     .btn:active
-      background: #221488
+      background: #e9abc6
 
     .side-bar-title
       margin-top: 20px
       margin-bottom: 0px
       margin-left: 25px
-      font-size: 20px
+      font-size: 17px
 
   .users-list
-    // border: 3px solid green
+    border: 3px solid red
+    display: flex
+    flex-direction: column
+    justify-content: start
+    width: 80%
+    margin: 0px 30px
+
+    .user-list-title
+      margin-bottom: 10px
+      margin-top: 19px
+      font-size: 17px
+
+    .margin-left-10
+      margin-left: 10px
+
+.users-list > p
+      // border: 3px solid blue
+      // align-self: flex-end
+      // font-size: 17px
+    
+.user-card
+  background-color: #F4F3F3
+  // border: 3px solid green
+  margin-bottom: 15px
+  margin-right: 20px
+  width: 60%
+  border-radius: 5px
+
