@@ -1,23 +1,28 @@
-/*
-eslint object-curly-newline: ["error", { "ObjectExpression": "always", "ObjectPattern": "never" }]
-*/
-
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { useEffect } from 'react';
 
+import { fetchUsers } from './redux/usersSlice';
+import { useAppDispatch } from './redux/hooks';
 import ErrorPage from './components/ErrorPage';
-import Users from './components/Users';
-import UserInfo from './components/Bio';
+import Root from './components/Root';
+import UserDetails from './components/UserDetails';
 
 const App = () => {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchUsers());
+  }, [dispatch]);
+
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <Users />,
+      element: <Root />,
       errorElement: <ErrorPage />,
     },
     {
-      path: '/user',
-      element: <UserInfo />,
+      path: '/:userId',
+      element: <UserDetails />,
     },
   ]);
 
