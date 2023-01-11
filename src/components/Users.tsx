@@ -1,47 +1,42 @@
-/*
-eslint object-curly-newline: ["error", { "ObjectExpression": "always", "ObjectPattern": "never" }]
-*/
+import { NavLink } from 'react-router-dom';
 
+import { useAppSelector, useAppDispatch } from '../redux/hooks';
+import { setTargetUser } from '../redux/usersSlice';
 import Sidebar from './Sidebar';
 
 const Users = () => {
-  type User = {
-    first: string;
-    last: string;
-    email: string;
-    id: number;
-  };
+  const dispatch = useAppDispatch();
+  const { users } = useAppSelector((state) => state.usersStore);
 
-  const contacts: User[] = [
-    {
-      first: 'Max',
-      last: 'Diesel',
-      email: 'adjnakjnd@gmail.com',
-      id: 1,
-    },
-    {
-      first: 'Anton',
-      last: 'Sanches',
-      email: 'Sanches@gmail.com',
-      id: 2,
-    },
-  ];
-
-  // React.Suspense for loading
   return (
     <div className="grid-container">
       <Sidebar />
       <div className="users-list">
         <h4 className="margin-left-10 user-list-title">Users List</h4>
-        {contacts.map(({ first, last, email, id }: User) => (
-          <div className="margin-left-10 user-card" key={id}>
-            <p>{first}</p>
-            <p>{last}</p>
-            <p>{email}</p>
-            <p>Подробнее</p>
+        {users.map((user) => (
+          <div className="margin-left-10 user-card" key={user.id}>
+            <p>
+              <span className="field-description">Name: </span>
+              {user.name}
+            </p>
+            <p>
+              <span className="field-description">City: </span>
+              {user.address.city}
+            </p>
+            <p>
+              <span className="field-description">Company: </span>
+              {user.company.name}
+            </p>
+            <NavLink
+              to={`/${user.id}`}
+              onClick={() => dispatch(setTargetUser(user.id))}
+              className="user-details"
+            >
+              Details
+            </NavLink>
           </div>
         ))}
-        <p className="margin-left-10">{`${contacts.length} Users Found`}</p>
+        <div className="users-count margin-left-10">{`${users.length} Users Found`}</div>
       </div>
     </div>
   );
