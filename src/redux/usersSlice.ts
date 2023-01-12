@@ -34,6 +34,7 @@ type UsersState = {
   users: User[];
   targetUser: null | number;
   error: string | null;
+  readOnlyForm?: boolean;
   isLoading?: boolean;
 };
 
@@ -44,8 +45,8 @@ const fetchUsers = createAsyncThunk<User[], undefined, { rejectValue: string }>(
     if (!response.ok) {
       return rejectWithValue('Error! Unable to load data :(');
     }
-    const data = await response.json();
-    return data;
+
+    return await response.json();
   },
 );
 
@@ -53,6 +54,7 @@ const initialState: UsersState = {
   users: [],
   targetUser: null,
   error: null,
+  readOnlyForm: true,
 };
 
 const usersSlice = createSlice({
@@ -60,8 +62,11 @@ const usersSlice = createSlice({
   initialState,
   reducers: {
     // 2 reducers for sort
-    setTargetUser: (state, { payload }: PayloadAction<number>) => {
+    setTargetUser: (state, { payload }: PayloadAction<null | number>) => {
       state.targetUser = payload;
+    },
+    switchFormState: (state, { payload }: PayloadAction<boolean>) => {
+      state.readOnlyForm = payload;
     },
   },
   extraReducers: (builder) => {
@@ -83,6 +88,6 @@ const usersSlice = createSlice({
 });
 
 export { fetchUsers };
-export const { setTargetUser } = usersSlice.actions;
+export const { setTargetUser, switchFormState } = usersSlice.actions;
 export const charactersSelector = (state: RootState) => state.usersStore;
 export default usersSlice.reducer;
