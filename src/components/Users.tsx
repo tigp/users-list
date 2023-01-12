@@ -28,9 +28,9 @@ const Users = () => {
               {user.company.name}
             </p>
             <NavLink
-              to={`/${user.id}`}
+              to={`/user/${user.id}`}
               onClick={() => dispatch(setTargetUser(user.id))}
-              className="user-details"
+              className="user-details-link"
             >
               Details
             </NavLink>

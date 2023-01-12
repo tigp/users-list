@@ -1,14 +1,35 @@
-import { useAppSelector, useAppDispatch } from '../redux/hooks';
+import { NavLink } from 'react-router-dom';
+
+import { useAppDispatch, useAppSelector } from '../redux/hooks';
+import { setTargetUser, switchFormState } from '../redux/usersSlice';
 import Sidebar from './Sidebar';
+import Form from './Form';
 
 const UserDetails = () => {
-  const { users, targetUser } = useAppSelector((state) => state.usersStore);
-  const user = targetUser ? users[targetUser - 1] : null;
+  const dispatch = useAppDispatch();
+  const { readOnlyForm } = useAppSelector((state) => state.usersStore);
 
   return (
     <div className="grid-container">
       <Sidebar />
-      <div>{user && user.name}</div>
+      <div className="user-profile">
+        <h4>User Profile</h4>
+        <button
+          className="btn"
+          type="button"
+          onClick={() => dispatch(switchFormState(!readOnlyForm))}
+        >
+          Edit
+        </button>
+        <Form />
+        <NavLink
+          to="/"
+          onClick={() => dispatch(setTargetUser(null))}
+          className="user-details-link"
+        >
+          Home
+        </NavLink>
+      </div>
     </div>
   );
 };
