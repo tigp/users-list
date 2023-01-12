@@ -21,7 +21,7 @@ const App = () => {
       errorElement: <ErrorPage />,
     },
     {
-      path: '/:userId',
+      path: '/user/:userId',
       element: <UserDetails />,
     },
   ]);
