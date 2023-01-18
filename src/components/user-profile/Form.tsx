@@ -1,6 +1,6 @@
 import { useFormik } from 'formik';
 
-import { useAppSelector } from '../redux/hooks';
+import { useAppSelector } from '../../redux/hooks';
 
 const From = () => {
   const { users, targetUser, readOnlyForm } = useAppSelector(
@@ -20,7 +20,7 @@ const From = () => {
       website: user?.website,
     },
     onSubmit: (values) => {
-      console.log('Data sended!');
+      console.log(values);
     },
   });
 

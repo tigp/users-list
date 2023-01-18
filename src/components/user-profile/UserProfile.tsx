@@ -1,9 +1,10 @@
 import { NavLink } from 'react-router-dom';
 
-import { useAppDispatch, useAppSelector } from '../redux/hooks';
-import { setTargetUser, switchFormState } from '../redux/usersSlice';
-import Sidebar from './Sidebar';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { setTargetUser, switchFormState } from '../../redux/usersSlice';
+import Sidebar from '../side-bar/Sidebar';
 import Form from './Form';
+import './UserProfile.sass';
 
 const UserDetails = () => {
   const dispatch = useAppDispatch();
@@ -25,7 +26,7 @@ const UserDetails = () => {
         <NavLink
           to="/"
           onClick={() => dispatch(setTargetUser(null))}
-          className="user-details-link"
+          className="link"
         >
           Home
         </NavLink>

@@ -1,3 +1,5 @@
+import './ErrorPage.sass';
+
 const ErrorPage = () => (
   <div id="error-page">
     <h1>Oops!</h1>

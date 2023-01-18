@@ -3,9 +3,9 @@ import { useEffect } from 'react';
 
 import { fetchUsers } from './redux/usersSlice';
 import { useAppDispatch } from './redux/hooks';
-import ErrorPage from './components/ErrorPage';
+import ErrorPage from './components/error-page/ErrorPage';
 import Root from './components/Root';
-import UserDetails from './components/UserDetails';
+import UserDetails from './components/user-profile/UserProfile';
 
 const App = () => {
   const dispatch = useAppDispatch();

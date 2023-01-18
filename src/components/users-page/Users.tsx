@@ -1,8 +1,9 @@
 import { NavLink } from 'react-router-dom';
 
-import { useAppSelector, useAppDispatch } from '../redux/hooks';
-import { setTargetUser } from '../redux/usersSlice';
-import Sidebar from './Sidebar';
+import { useAppSelector, useAppDispatch } from '../../redux/hooks';
+import { setTargetUser } from '../../redux/usersSlice';
+import Sidebar from '../side-bar/Sidebar';
+import './Users.sass';
 
 const Users = () => {
   const dispatch = useAppDispatch();
@@ -30,7 +31,7 @@ const Users = () => {
             <NavLink
               to={`/user/${user.id}`}
               onClick={() => dispatch(setTargetUser(user.id))}
-              className="user-details-link"
+              className="link"
             >
               Details
             </NavLink>

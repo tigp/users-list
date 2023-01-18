@@ -47,7 +47,7 @@ const fetchUsers = createAsyncThunk<User[], undefined, { rejectValue: string }>(
       return rejectWithValue('Error! Unable to load data :(');
     }
 
-    return response.json();
+    return await response.json();
   },
 );
 
@@ -94,8 +94,7 @@ const usersSlice = createSlice({
 });
 
 export { fetchUsers };
-export const {
-  sortByCity, sortByCompany, setTargetUser, switchFormState,
-} = usersSlice.actions;
+export const { sortByCity, sortByCompany, setTargetUser, switchFormState } =
+  usersSlice.actions;
 export const charactersSelector = (state: RootState) => state.usersStore;
 export default usersSlice.reducer;
