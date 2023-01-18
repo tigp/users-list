@@ -6,8 +6,9 @@ import {
   PayloadAction,
   AnyAction,
 } from '@reduxjs/toolkit';
+import sortBy from 'sort-by';
 
-import { RootState } from './index';
+import type { RootState } from './index';
 
 type User = {
   id: number;
@@ -46,7 +47,7 @@ const fetchUsers = createAsyncThunk<User[], undefined, { rejectValue: string }>(
       return rejectWithValue('Error! Unable to load data :(');
     }
 
-    return await response.json();
+    return response.json();
   },
 );
 
@@ -61,7 +62,12 @@ const usersSlice = createSlice({
   name: 'users',
   initialState,
   reducers: {
-    // 2 reducers for sort
+    sortByCity: (state): void => {
+      state.users = state.users.sort(sortBy('address.city'));
+    },
+    sortByCompany: (state): void => {
+      state.users = state.users.sort(sortBy('company.name'));
+    },
     setTargetUser: (state, { payload }: PayloadAction<null | number>) => {
       state.targetUser = payload;
     },
@@ -88,6 +94,8 @@ const usersSlice = createSlice({
 });
 
 export { fetchUsers };
-export const { setTargetUser, switchFormState } = usersSlice.actions;
+export const {
+  sortByCity, sortByCompany, setTargetUser, switchFormState,
+} = usersSlice.actions;
 export const charactersSelector = (state: RootState) => state.usersStore;
 export default usersSlice.reducer;
