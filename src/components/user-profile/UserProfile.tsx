@@ -14,14 +14,16 @@ const UserDetails = () => {
     <div className="grid-container">
       <Sidebar />
       <div className="user-profile">
-        <h4>User Profile</h4>
-        <button
-          className="btn"
-          type="button"
-          onClick={() => dispatch(switchFormState(!readOnlyForm))}
-        >
-          Edit
-        </button>
+        <div className="user-profile-title margin-left-10">
+          <h4 className="user-list-title">User Profile</h4>
+          <button
+            className="btn"
+            type="button"
+            onClick={() => dispatch(switchFormState(!readOnlyForm))}
+          >
+            Edit
+          </button>
+        </div>
         <Form />
         <NavLink
           to="/"

@@ -1,19 +1,9 @@
-.grid-container
-  display: grid
-  grid-template-columns: 20% 1fr
-  height: 100vh
-
-  .users-list
-    display: flex
-    flex-direction: column
-    justify-content: start
-    width: 80%
-    margin: 0px 30px
-
-    .user-list-title
-      margin-bottom: 10px
-      margin-top: 19px
-      font-size: 17px
+.users-list
+  display: flex
+  flex-direction: column
+  justify-content: start
+  width: 80%
+  margin: 0px 20px
 
 .user-card
   display: flex
@@ -24,6 +14,13 @@
   width: 90%
   border-radius: 5px
 
+.user-card > p
+  margin: 5px 0px 0px 15px
+  font-size: 17px
+
 .field-description
   font-size: 17px
   color: #969292
+
+.users-list .link
+  align-self: flex-end
