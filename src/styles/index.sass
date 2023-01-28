@@ -6,7 +6,7 @@ body
 
 .grid-container
   display: grid
-  grid-template-columns: 15% 1fr
+  grid-template-columns: 16% 1fr
   height: 100vh
 
 .margin-left-10
@@ -38,4 +38,9 @@ body
   margin-bottom: 10px
   margin-top: 19px
   font-size: 17px
-// @media display < 540 =>  .grid-container: grid-template-columns: 30% 1fr
+
+@media (width < 800px)
+  .grid-container
+    display: grid
+    grid-template-columns: 37% 1fr
+    height: 100vh

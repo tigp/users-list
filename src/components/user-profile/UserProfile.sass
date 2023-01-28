@@ -1,16 +1,14 @@
 .user-profile
-  // border: 3px solid red
-  width: 60%
+  width: 70%
   margin: 0px 20px
 
   .user-profile-title
     margin-bottom: 6px
 
 #user-form
-  // border: 3px solid blue
   margin: 10px
   padding: 10px 0px
-  width: 95%
+  width: 35vw
 
 fieldset
   margin: 0px
@@ -21,7 +19,7 @@ label
   font-size: 12px
 
 input
-  width: 50%
+  width: 70%
   border: none
   border: solid 1px #ccc
   border-radius: 5px
@@ -82,3 +80,23 @@ textarea
 
 .button-flex-control-panel .link
   margin: 5px 0px
+
+@media (width < 800px)
+  .edit-button
+    width: 70%
+
+  #user-form
+    width: 55vw
+    margin: 5px
+
+  .send-button-lock
+    width: 40%
+  
+  .send-button-unlock
+    width: 40%
+
+  input
+    width: 80%
+
+  textarea
+    width: 80%
