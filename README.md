@@ -4,7 +4,8 @@
 
 **Technologies used:**
 
-- React(Hooks)
+- React
+- Redux(@reduxjs/toolkit)
 - TypeScript
 - React Router Dom(6.6.1)
 - SASS
