@@ -1,4 +1,4 @@
-## React-SPA
+# [React-SPA](https://courageous-biscochitos-dce384.netlify.app/)
 
 [Terms of Reference](https://roox.notion.site/frontend-32b79baef66c4ca4a27f6f76e01a7dd2)
 
@@ -19,5 +19,3 @@ clone repository
 $ make install
 $ make start
 ```
-
-Deploy coming soon...
