@@ -1,6 +1,6 @@
 import { useAppDispatch } from '../../redux/hooks';
 import { sortByCity, sortByCompany } from '../../redux/usersSlice';
-import './Sidebar.sass';
+import './SideBar.sass';
 
 const Sidebar = () => {
   const dispatch = useAppDispatch();
